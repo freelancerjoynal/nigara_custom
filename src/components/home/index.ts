@@ -1,0 +1,13 @@
+export { default as ColorfulServices } from "./ColorfulServices";
+export { default as FAQBand } from "./FAQBand";
+export { default as GalleryTeaser } from "./GalleryTeaser";
+export { default as HomeCTA } from "./HomeCTA";
+export { default as HomeHero } from "./HomeHero";
+export { default as IntroStory } from "./IntroStory";
+export { default as OrderProcess } from "./OrderProcess";
+export { default as ProductRange } from "./ProductRange";
+export { default as ProcessBand } from "./ProcessBand";
+export { default as QualityBand } from "./QualityBand";
+export { default as SectorsBand } from "./SectorsBand";
+export { default as ValueBand } from "./ValueBand";
+export { default as WhyNiagara } from "./WhyNiagara";

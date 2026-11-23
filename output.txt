@@ -1,0 +1,36 @@
+# Niagara Custom Water — Implementation and Verification Log (Updated)
+
+## Scope
+- Stack: Next.js 16.4.6 (App Router, Turbopack), React 19.3, TypeScript, Tailwind CSS 4, Redux Toolkit, Three.js.
+- Content source: `requirement.txt` (all public copy in English).
+- Sitemap: http://localhost:3000
+
+## Major Update (latest): Full-width colorful redesign
+- New visual direction: full-width layout, colorful blue/gold/white/black with extra accents (mint, coral, violet, sky). Home hero is transparent/overlay style with background image and sticky header that becomes solid/scrolled.
+- Sticky transparent-to-scrolled `SiteHeader` + `ScrollToTop` button added (appears after scroll).
+- Homepage expanded with many sections: Hero, marquee, Intro story, Colorful services, Product range, Process band (with reference factory image), Quality band, Sectors band, Why Niagara, Gallery teaser, FAQ, Home CTA.
+- Reference images downloaded to `public/pictures/reference/` (aqua bottle/label/delivery, purification, factory, bottle mockup, project tiles). Used in hero/products/process/sectors where appropriate.
+- Design system rebuilt in `src/app/globals.css` (large full-width, responsive CSS). Atmosphere (snow globe) still present.
+
+## Routes (all static)
+- `/`, `/about`, `/gallery`, `/contact`, `/privacy-policy`, `/sitemap.xml`, `/robots.txt`, `/manifest.webmanifest`, `/icon.svg`.
+
+## Components
+- Global: `SiteHeader` (sticky), `SiteFooter`, `BrandMark`, `BrandMarquee`, `ScrollToTop`, `StoreProvider`, `Atmosphere`, `SnowGlobeScene`, `CTALink`, `SectionHeading`, `PageHero`.
+- Home: `HomeHero`, `IntroStory`, `ColorfulServices`, `ProductRange`, `ProcessBand`, `QualityBand`, `SectorsBand`, `WhyNiagara`, `GalleryTeaser`, `FAQBand`, `HomeCTA` (+ old components retained in tree but not used in new homepage composition).
+- About/Gallery/Contact/Privacy: existing page-specific components kept and styled to match new theme.
+
+## SEO
+- Per-page metadata, Open Graph/Twitter, JSON-LD (`Organization` + `WebSite`) in root layout, `sitemap.ts`, `robots.ts`, `manifest.ts`, `icon.svg`.
+
+## State
+- Redux Toolkit store + `uiSlice` (menu, snow toggle) + `inquirySlice` (contact form + prepared WhatsApp link). Contact form opens prefilled WhatsApp to `01740813738`.
+
+## Verification
+- `npm run lint`: passed.
+- `npm run build`: passed (Next.js 16.4.6 Turbopack). All routes static.
+- Dev server checks (http://localhost:3000): homepage returns 200 with hero/scroll-top markup; `/about`, `/gallery`, `/contact`, `/privacy-policy` return 200.
+
+## Notes
+- `https://hkangles.com/freshter/` was blocked (HTTP 403); ideas were taken from Rainvee and Aquaterias references.
+- No commits/pushes made by this automation.
