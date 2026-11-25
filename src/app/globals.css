@@ -375,8 +375,6 @@ ol {
   flex: none;
 }
 
-.header-whatsapp { display: none; }
-
 .mobile-nav {
   position: fixed;
   top: 0;
@@ -2364,18 +2362,6 @@ ol {
   .site-header__actions { gap: 0.45rem; }
   .snow-toggle, .menu-button { width: 2.5rem; height: 2.5rem; }
   .snow-toggle { display: none; }
-  .header-whatsapp {
-    display: inline-grid;
-    place-items: center;
-    width: 2.5rem;
-    height: 2.5rem;
-    border-radius: 999px;
-    background: #25d366;
-    color: #ffffff;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 10px 24px rgba(6, 94, 63, 0.25);
-  }
-  .header-whatsapp svg { width: 1.15rem; height: 1.15rem; }
   .header-cta { padding: 0.7rem 0.9rem; font-size: 0.68rem; }
   .mobile-nav { padding: 4.75rem 1.25rem 9rem; }
   .mobile-nav__logo { height: 2.8rem; }

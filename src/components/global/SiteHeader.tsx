@@ -69,15 +69,6 @@ export default function SiteHeader() {
         </nav>
 
         <div className="site-header__actions">
-          <a
-            href={whatsappQuoteUrl}
-            className="header-whatsapp"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Get a Quote on WhatsApp"
-          >
-            <WhatsAppIcon />
-          </a>
           <button
             type="button"
             className="snow-toggle"
