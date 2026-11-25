@@ -14,6 +14,17 @@ export const siteConfig = {
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://niagaracustomwater.com",
 } as const;
 
+const whatsappLink = (message: string) =>
+  `${siteConfig.whatsapp}?text=${encodeURIComponent(message)}`;
+
+export const whatsappQuoteUrl = whatsappLink(
+  "Hello Niagara Custom Water, I would like a quote for customized water bottles.",
+);
+
+export const whatsappChatUrl = whatsappLink(
+  "Hello Niagara Custom Water, I have a question about customized water bottles.",
+);
+
 export const navigation = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About Us" },

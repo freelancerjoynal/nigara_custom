@@ -1,26 +1,40 @@
+import Image from "next/image";
 import Link from "next/link";
 
-export default function BrandMark() {
+type BrandMarkProps = {
+  variant?: "header" | "footer";
+};
+
+export default function BrandMark({ variant = "header" }: BrandMarkProps) {
+  if (variant === "footer") {
+    return (
+      <Link href="/" className="brand-mark brand-mark--footer" aria-label="Niagara Custom Water — home">
+        <Image
+          src="/pictures/logo-transparent.png"
+          alt="Niagara Custom Water"
+          width={880}
+          height={1202}
+          className="brand-mark__logo brand-mark__logo--footer"
+          sizes="80px"
+        />
+      </Link>
+    );
+  }
+
   return (
-    <Link href="/" className="brand-mark" aria-label="Niagara Custom Water — home">
-      <span className="brand-mark__icon" aria-hidden="true">
-        <svg viewBox="0 0 32 32" fill="none" role="presentation">
-          <path
-            d="M16 2.5c4.8 6.1 9.4 11.2 9.4 16.3A9.4 9.4 0 0 1 16 28.2a9.4 9.4 0 0 1-9.4-9.4C6.6 13.7 11.2 8.6 16 2.5Z"
-            stroke="currentColor"
-            strokeWidth="1.6"
-          />
-          <path
-            d="M10.6 19.2c.6 3 2.8 5 5.8 5.4"
-            stroke="currentColor"
-            strokeWidth="1.6"
-            strokeLinecap="round"
-          />
-        </svg>
-      </span>
-      <span className="brand-mark__words">
-        <span className="brand-mark__name">NIAGARA</span>
-        <span className="brand-mark__sub">CUSTOM WATER</span>
+    <Link href="/" className="brand-mark brand-mark--header" aria-label="Niagara Custom — home">
+      <Image
+        src="/pictures/logo-white.jpg"
+        alt=""
+        width={880}
+        height={1202}
+        className="brand-mark__logo"
+        sizes="90px"
+        priority
+      />
+      <span className="brand-mark__words" aria-hidden="true">
+        <span className="brand-mark__name">Niagara</span>
+        <span className="brand-mark__sub">Custom</span>
       </span>
     </Link>
   );

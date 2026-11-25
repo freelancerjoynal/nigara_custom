@@ -11,6 +11,7 @@ import {
   ProcessBand,
   QualityBand,
   SectorsBand,
+  SourceStory,
   WhyNiagara,
 } from "@/components/home";
 
@@ -27,6 +28,7 @@ export default function HomePage() {
       <HomeHero />
       <BrandMarquee />
       <IntroStory />
+      <SourceStory />
       <ColorfulServices />
       <ProductRange />
       <ProcessBand />

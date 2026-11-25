@@ -3,10 +3,11 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { navigation } from "@/data/site";
+import { navigation, whatsappQuoteUrl } from "@/data/site";
 import { closeMenu, toggleMenu, toggleSnow } from "@/store/slices/uiSlice";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import BrandMark from "./BrandMark";
+import WhatsAppIcon from "./WhatsAppIcon";
 
 export default function SiteHeader() {
   const pathname = usePathname();
@@ -48,6 +49,15 @@ export default function SiteHeader() {
         </nav>
 
         <div className="site-header__actions">
+          <a
+            href={whatsappQuoteUrl}
+            className="header-whatsapp"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Get a Quote on WhatsApp"
+          >
+            <WhatsAppIcon />
+          </a>
           <button
             type="button"
             className="snow-toggle"
@@ -65,9 +75,16 @@ export default function SiteHeader() {
               />
             </svg>
           </button>
-          <Link href="/contact" className="header-cta">
+          <a
+            href={whatsappQuoteUrl}
+            className="header-cta"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Get a Quote on WhatsApp"
+          >
+            <WhatsAppIcon className="header-cta__icon" />
             Get a Quote
-          </Link>
+          </a>
           <button
             type="button"
             className="menu-button"
@@ -100,6 +117,16 @@ export default function SiteHeader() {
               <span aria-hidden="true">↗</span>
             </Link>
           ))}
+          <a
+            href={whatsappQuoteUrl}
+            className="btn btn--primary mobile-nav__cta"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Get a Quote on WhatsApp"
+          >
+            <WhatsAppIcon className="mobile-nav__cta-icon" />
+            Get a Quote
+          </a>
         </nav>
       </div>
     </header>

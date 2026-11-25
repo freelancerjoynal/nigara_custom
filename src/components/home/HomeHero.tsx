@@ -1,5 +1,6 @@
 import Image from "next/image";
 import CTALink from "@/components/global/CTALink";
+import MotionVideo from "@/components/global/MotionVideo";
 
 const heroPoints = [
   { icon: "◈", label: "Your logo, your colors" },
@@ -17,7 +18,7 @@ export default function HomeHero() {
   return (
     <section className="hero">
       <div className="hero__backdrop" aria-hidden="true">
-        <Image src="/pictures/herobg.png" alt="" fill priority sizes="100vw" />
+        <MotionVideo className="hero__video" />
       </div>
       <div className="hero__aura hero__aura--gold" aria-hidden="true" />
       <div className="hero__aura hero__aura--cyan" aria-hidden="true" />

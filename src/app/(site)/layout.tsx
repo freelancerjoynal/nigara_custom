@@ -1,6 +1,7 @@
 import ScrollToTop from "@/components/global/ScrollToTop";
 import SiteFooter from "@/components/global/SiteFooter";
 import SiteHeader from "@/components/global/SiteHeader";
+import WhatsAppChat from "@/components/global/WhatsAppChat";
 
 export default function SiteLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -12,6 +13,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
       <main id="main-content">{children}</main>
       <SiteFooter />
       <ScrollToTop />
+      <WhatsAppChat />
     </>
   );
 }

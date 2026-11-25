@@ -8,7 +8,7 @@ export default function SiteFooter() {
       <div className="shell">
         <div className="footer__grid">
           <div className="footer__brand">
-            <BrandMark />
+            <BrandMark variant="footer" />
             <p>
               Customized branded drinking water for restaurants, hotels, cafés, offices and
               events across Bangladesh.
