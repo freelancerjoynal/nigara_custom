@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import "lenis/dist/lenis.css";
 import Atmosphere from "@/components/global/Atmosphere";
+import SmoothScroll from "@/components/global/SmoothScroll";
 import StoreProvider from "@/components/global/StoreProvider";
 import { siteConfig } from "@/data/site";
 
@@ -71,12 +73,14 @@ const structuredData = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" data-scroll-behavior="smooth">
+    <html lang="en">
       <body>
-        <StoreProvider>
-          <Atmosphere />
-          <div className="site-shell">{children}</div>
-        </StoreProvider>
+        <SmoothScroll>
+          <StoreProvider>
+            <Atmosphere />
+            <div className="site-shell">{children}</div>
+          </StoreProvider>
+        </SmoothScroll>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}

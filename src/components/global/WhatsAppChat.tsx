@@ -1,10 +1,14 @@
 import { whatsappChatUrl } from "@/data/site";
 import WhatsAppIcon from "./WhatsAppIcon";
 
-export default function WhatsAppChat() {
+type WhatsAppChatProps = {
+  inline?: boolean;
+};
+
+export default function WhatsAppChat({ inline = false }: WhatsAppChatProps) {
   return (
     <a
-      className="whatsapp-chat"
+      className={inline ? "whatsapp-chat whatsapp-chat--inline" : "whatsapp-chat"}
       href={whatsappChatUrl}
       target="_blank"
       rel="noopener noreferrer"

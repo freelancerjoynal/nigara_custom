@@ -1,12 +1,14 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { navigation, whatsappQuoteUrl } from "@/data/site";
+import { navigation, siteConfig, whatsappQuoteUrl } from "@/data/site";
 import { closeMenu, toggleMenu, toggleSnow } from "@/store/slices/uiSlice";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import BrandMark from "./BrandMark";
+import WhatsAppChat from "./WhatsAppChat";
 import WhatsAppIcon from "./WhatsAppIcon";
 
 export default function SiteHeader() {
@@ -27,8 +29,26 @@ export default function SiteHeader() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    if (!menuOpen) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    window.dispatchEvent(new Event("app:lock-scroll"));
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") dispatch(closeMenu());
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.dispatchEvent(new Event("app:unlock-scroll"));
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [menuOpen, dispatch]);
+
   return (
-    <header className={`site-header${scrolled ? " site-header--scrolled" : ""}`}>
+    <header
+      className={`site-header${scrolled ? " site-header--scrolled" : ""}${menuOpen ? " site-header--menu-open" : ""}`}
+    >
       <div className="shell site-header__inner">
         <BrandMark />
 
@@ -102,8 +122,29 @@ export default function SiteHeader() {
       <div
         id="mobile-navigation"
         className={menuOpen ? "mobile-nav mobile-nav--open" : "mobile-nav"}
-        hidden={!menuOpen}
+        aria-hidden={!menuOpen}
       >
+        <div className="mobile-nav__top">
+          <Image
+            src="/pictures/logo-transparent.png"
+            alt="Niagara Custom Water"
+            width={880}
+            height={1202}
+            className="mobile-nav__logo"
+            sizes="64px"
+          />
+          <button
+            type="button"
+            className="mobile-nav__close"
+            onClick={() => dispatch(closeMenu())}
+            aria-label="Close menu"
+          >
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 6l12 12M18 6 6 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+            </svg>
+          </button>
+        </div>
+
         <nav aria-label="Mobile navigation">
           {navigation.map((item) => (
             <Link
@@ -127,7 +168,24 @@ export default function SiteHeader() {
             <WhatsAppIcon className="mobile-nav__cta-icon" />
             Get a Quote
           </a>
+          <WhatsAppChat inline />
         </nav>
+
+        <div className="mobile-nav__bottom">
+          <p className="mobile-nav__tagline">{siteConfig.tagline}</p>
+          <div className="mobile-nav__contact">
+            <a href={`tel:${siteConfig.phoneInternational}`}>{siteConfig.phone}</a>
+            <span aria-hidden="true">•</span>
+            <a
+              href={whatsappQuoteUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              WhatsApp &amp; Direct Orders
+            </a>
+          </div>
+          <p className="mobile-nav__address">{siteConfig.address}</p>
+        </div>
       </div>
     </header>
   );
