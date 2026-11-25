@@ -390,10 +390,10 @@ ol {
   justify-content: center;
   padding: 5rem 1.25rem 9rem;
   background:
-    radial-gradient(circle at 12% 18%, rgba(47, 132, 207, 0.28), transparent 42%),
-    radial-gradient(circle at 88% 82%, rgba(87, 231, 196, 0.14), transparent 40%),
-    linear-gradient(135deg, rgba(7, 18, 37, 0.8) 0%, rgba(13, 34, 64, 0.8) 55%, rgba(21, 60, 102, 0.8) 100%);
-  backdrop-filter: blur(18px);
+    radial-gradient(circle at 12% 18%, rgba(47, 132, 207, 0.22), transparent 42%),
+    radial-gradient(circle at 88% 82%, rgba(87, 231, 196, 0.12), transparent 40%),
+    linear-gradient(135deg, rgba(7, 18, 37, 0.9) 0%, rgba(13, 34, 64, 0.9) 55%, rgba(21, 60, 102, 0.9) 100%);
+  backdrop-filter: blur(14px);
   color: #ffffff;
   transform: translateX(-100%);
   visibility: hidden;
@@ -2042,10 +2042,26 @@ ol {
   z-index: auto;
   width: 100%;
   justify-content: center;
-  margin-top: 0.8rem;
+  margin-top: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 12px 30px rgba(6, 94, 63, 0.24);
   opacity: 0;
   transform: translateX(-1.25rem);
   transition: opacity 300ms ease 400ms, transform 300ms ease 400ms, box-shadow 200ms ease;
+}
+
+.whatsapp-chat--inline::after {
+  content: "or chat with us";
+  position: absolute;
+  top: -1.35rem;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .mobile-nav--open .whatsapp-chat--inline {
