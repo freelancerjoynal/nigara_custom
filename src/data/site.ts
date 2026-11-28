@@ -28,6 +28,7 @@ export const whatsappChatUrl = whatsappLink(
 export const navigation = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About Us" },
+  { href: "/#clients", label: "Our Clients" },
   { href: "/gallery", label: "Gallery" },
   { href: "/contact", label: "Contact Us" },
 ] as const;

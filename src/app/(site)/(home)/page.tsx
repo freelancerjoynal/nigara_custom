@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import BrandMarquee from "@/components/global/BrandMarquee";
 import {
+  ClientsSection,
   ColorfulServices,
   FAQBand,
   GalleryTeaser,
@@ -28,6 +29,7 @@ export default function HomePage() {
       <HomeHero />
       <BrandMarquee />
       <IntroStory />
+      <ClientsSection />
       <SourceStory />
       <ColorfulServices />
       <ProductRange />

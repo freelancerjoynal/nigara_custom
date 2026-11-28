@@ -54,7 +54,7 @@ export default function SiteHeader() {
 
         <nav className="site-nav" aria-label="Primary navigation">
           {navigation.map((item) => {
-            const active = pathname === item.href;
+            const active = !item.href.includes("#") && pathname === item.href;
             return (
               <Link
                 key={item.href}
@@ -142,7 +142,7 @@ export default function SiteHeader() {
               key={item.href}
               href={item.href}
               className="mobile-nav__link"
-              aria-current={pathname === item.href ? "page" : undefined}
+              aria-current={!item.href.includes("#") && pathname === item.href ? "page" : undefined}
               onClick={() => dispatch(closeMenu())}
             >
               {item.label}

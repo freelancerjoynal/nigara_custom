@@ -1,3 +1,5 @@
+export { default as ClientShowcase } from "./ClientShowcase";
+export { default as ClientsSection } from "./ClientsSection";
 export { default as ColorfulServices } from "./ColorfulServices";
 export { default as FAQBand } from "./FAQBand";
 export { default as GalleryTeaser } from "./GalleryTeaser";

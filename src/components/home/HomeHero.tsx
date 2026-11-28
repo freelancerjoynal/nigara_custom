@@ -1,6 +1,6 @@
-import Image from "next/image";
 import CTALink from "@/components/global/CTALink";
 import MotionVideo from "@/components/global/MotionVideo";
+import ClientShowcase from "./ClientShowcase";
 
 const heroPoints = [
   { icon: "◈", label: "Your logo, your colors" },
@@ -54,24 +54,16 @@ export default function HomeHero() {
           </ul>
         </div>
 
-        <div className="hero__visual" aria-label="Custom branded water bottle">
+        <div className="hero__visual" aria-label="Custom branded client bottles">
           <div className="hero__ring hero__ring--one" aria-hidden="true" />
           <div className="hero__ring hero__ring--two" aria-hidden="true" />
           <div className="hero__glow" aria-hidden="true" />
-          <Image
-            src="/pictures/aqua-bottol.png"
-            alt="Custom branded water bottle with a clean label area"
-            width={707}
-            height={696}
-            priority
-            className="hero__product"
-            sizes="(max-width: 900px) 78vw, 540px"
-          />
+          <ClientShowcase />
           <div className="hero__float hero__float--label">
             <span className="hero__float-dot" aria-hidden="true" />
             <span>
-              <strong>YOUR LOGO</strong>
-              <small>Full-color label</small>
+              <strong>REAL CLIENT LABELS</strong>
+              <small>Made for your brand</small>
             </span>
           </div>
           <div className="hero__float hero__float--cold">
